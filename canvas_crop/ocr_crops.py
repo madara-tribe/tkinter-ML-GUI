@@ -10,26 +10,23 @@ cnt = 1
 class Application(tk.Frame):
     def __init__(self, master = None):
         super().__init__(master)
-        self.master = master
-        self.master.title("image select")
+
         self.master.geometry('840x840')
-        
+        self.master.title("image select")
+
         self.pngs = 'images/dog2.png'
-        self.create_canvas(self.master)
-    
-    def create_canvas(self, root):
         img1 = Image.open(self.pngs)
         img1 = img1.resize((SIZE, SIZE))
-        gazou = ImageTk.PhotoImage(img1)
-        
-        self.canvas = tk.Canvas(width=SIZE, height=SIZE, bg="black")
-        self.canvas.place(x=100, y=100)
-        self.canvas.create_image(0, 0, image=gazou, anchor=tk.NW)
-        root.bind("<ButtonPress-1>",self.Push)
-        root.bind("<ButtonRelease-1>",self.Release)
-        root.bind("<Button1-Motion>",self.Motion)
-        root.mainloop()
-        
+        self.gazou = ImageTk.PhotoImage(img1)
+
+        self.canvas = tk.Canvas(self.master, width=SIZE,height=SIZE,bg="black")
+        self.canvas.create_image(0, 0, image=self.gazou, anchor=tk.NW)
+        self.canvas.pack()
+
+        self.master.bind("<ButtonPress-1>",self.Push)
+        self.master.bind("<ButtonRelease-1>",self.Release)
+        self.master.bind("<Button1-Motion>",self.Motion)
+
     def Push(self, event):
         global x_start,y_start
         x_start = event.x
@@ -62,5 +59,3 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = Application(master = root)
     app.mainloop()
-
-
