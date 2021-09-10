@@ -6,9 +6,7 @@ import json
 from PIL import Image, ImageTk, ImageOps, ImageDraw
 from paddleocr import main
 
-# alia-app
-#URL='https://hooks.slack.com/services/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'
-# hagi
+
 URL = 'https://hooks.slack.com/services/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'
 SIZE=600
 cnt = 1
