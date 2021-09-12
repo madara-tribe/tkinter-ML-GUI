@@ -7,7 +7,7 @@ import os
 #範囲を指定して切り取った画像の保存場所："ocr_images"
 #古い画像を削除するため、毎回フォルダ毎削除し、再度フォルダを作成
 
-OCR_FOLDER='ocr_images'
+OCR_FOLDER='crop_images'
 if os.path.exists(OCR_FOLDER):
     shutil.rmtree(OCR_FOLDER)
 os.makedirs(OCR_FOLDER)

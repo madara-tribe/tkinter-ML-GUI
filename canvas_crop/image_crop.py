@@ -52,7 +52,7 @@ class Application(tk.Frame):
 
 
 if __name__ == "__main__":
-    OCR_FOLDER='ocr_images'
+    OCR_FOLDER='crop_images'
     if os.path.exists(OCR_FOLDER):
         shutil.rmtree(OCR_FOLDER)
     os.makedirs(OCR_FOLDER)
