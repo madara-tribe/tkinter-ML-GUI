@@ -28,11 +28,11 @@ class Application(tk.Frame):
         self.master.bind("<Button1-Motion>",self.Motion)
 
     def Push(self, event):
-        global x_start,y_start
+        global x_start,y_start, cnt
         x_start = event.x
         y_start = event.y
         self.canvas.create_rectangle(x_start,y_start,x_start+1,y_start+1,outline="red",tag="rect")
-
+        self.canvas.create_text(x_start, y_start-10, text=str(cnt), fill='red', font=("courier", "18",  "bold"))
     #コールバック関数：タッチパッドから指を離したとき
     def Release(self, event):
         global x_end,y_end,cnt
@@ -41,7 +41,7 @@ class Application(tk.Frame):
         self.canvas.create_rectangle(x_start,y_start,x_end,y_end,outline="red")
         img = Image.open(self.pngs)
         img = img.resize((SIZE, SIZE))
-        img.crop((x_start,y_start,x_end,y_end)).save(f"ocr_images/{cnt}.png")
+        img.crop((x_start,y_start,x_end,y_end)).save(f"crop_images/{cnt}.png")
         cnt = cnt + 1
 
     #コールバック関数：タッチパッド上で指を動かしている時
