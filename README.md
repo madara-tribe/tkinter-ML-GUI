@@ -3,10 +3,10 @@
 
 # sample ML app (color extractor)
 
-1. crop on canvas by GUI 
-2. push 'Prediction button'
-3. show topN main color and show color ratio map
-4. send topN color name to specific URL
+1. crop an image on canvas by GUI 
+3. push 'Prediction button'
+4. show topN main color and show color ratio map
+5. send topN color name to specific URL
 
 
 
