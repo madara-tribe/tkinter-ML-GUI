@@ -1,6 +1,6 @@
 from funcs import *
 import numpy as np
-CSV = "images/LAB_color_list.csv"
+CSV = "utils/LAB_color_list.csv"
 
 def predict(query_name):
     topn=5

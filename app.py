@@ -19,7 +19,7 @@ class Application(tk.Frame):
         
         self.master.title("color prediction")
         self.master.geometry('840x840')
-        self.filepath = 'images/1.jpeg'
+        self.filepath = 'utils/1.jpeg'
         self.btn = tk.Button(text='Color estimation', command=self.pushed)
         self.btn.pack()
         self.all_entries = []
