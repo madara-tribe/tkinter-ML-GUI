@@ -7,7 +7,7 @@ import json
 from PIL import Image, ImageTk, ImageOps, ImageDraw
 from main import predict
 
-URL = 'https://hooks.slack.com/services/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'
+URL = 'https://************'
 
 SIZE=600
 cnt = 1
