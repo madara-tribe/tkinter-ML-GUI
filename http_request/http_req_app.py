@@ -3,7 +3,7 @@ import os
 from http_req import http_request
 from PIL import Image, ImageTk, ImageOps, ImageDraw
 
-URL = 'https://hooks.slack.com/services/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'
+URL = 'https://*****'
 
 class Application(tk.Frame):
     def __init__(self, master = None):
