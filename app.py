@@ -23,6 +23,8 @@ class Application(tk.Frame):
         self.btn = tk.Button(text='Color estimation', command=self.pushed)
         self.btn.pack()
         self.all_entries = []
+        self.label = tk.Label(text='colors ratio')
+        self.label.place(x=400, y=680)
         # Enter text box
         self.setup()
         self.create_widgets()
@@ -50,6 +52,9 @@ class Application(tk.Frame):
         self.canvas.pack()
         self.clear_button = tk.Button(text='clear all', command=self.clear_canvas)
         self.clear_button.place(x=5, y=10)
+        
+        self.canvas2 = tk.Canvas(self.master, width=300,height=50,bg="white")
+        self.canvas2.place(x=400, y=700)
         
     def Push(self, event):
         global x_start,y_start
@@ -82,7 +87,7 @@ class Application(tk.Frame):
         for i, color_name in enumerate(colors):
             print(color_name[0][1])
             self.all_entries[i]["bg"] = str(color_name[0][1])
-   
+        
     def clear_canvas(self):
         global cnt
         cnt=1
@@ -101,8 +106,13 @@ class Application(tk.Frame):
         requests.post(URL, data=json.dumps(payload))
         self.canvas.delete("all")
         self.canvas.create_image(0, 0, image=self.img_, anchor=tk.NW)
+        
+        img2_ = Image.open('crop_images/main_color_map.png')
+        #img2_ = img2_.resize((300, 50))
+        self.img2_ = ImageTk.PhotoImage(img2_)
+        self.canvas2.create_image(0, 0, image=self.img2_, anchor=tk.NW)
         self.change_bg_color([top1, top2, top3])
-
+        
 
 if __name__ == "__main__":
     root = tk.Tk()

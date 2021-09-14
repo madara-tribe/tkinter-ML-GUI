@@ -41,7 +41,7 @@ def extract_topN_color(two_dim_img, num_clusters = 5, plot=None):
     if plot:
         plt.figure()
         plt.imshow(main_rgb_colors),plt.show()
-    return rgb2lab(main_rgb_colors)
+    return rgb2lab(main_rgb_colors), main_rgb_colors
 
 def get_topn_lab(seq):
     seen = []

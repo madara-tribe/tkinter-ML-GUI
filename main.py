@@ -1,5 +1,6 @@
 from funcs import *
 import numpy as np
+
 CSV = "utils/LAB_color_list.csv"
 
 def predict(query_name):
@@ -11,8 +12,9 @@ def predict(query_name):
     #plt.imshow(rgb),plt.show()
     
     dim2rgb = rgb.reshape(-1,3)
-    lab_colors = extract_topN_color(dim2rgb, num_clusters = topn, plot=None)
+    lab_colors, main_rgb_colors = extract_topN_color(dim2rgb, num_clusters = topn, plot=None)
     
+    cv2.imwrite('crop_images/main_color_map.png', main_rgb_colors.astype(np.uint8))
     c1, c2, c3, _, _ = get_topn_lab(lab_colors[0].tolist())
     top1,top2,top3 = get_topn_color(color_name, lab_list, c1, c2, c3)
     print('main_color1 {}, main_color2 {}, main_color3 {}'.format(top1,top2,top3))
